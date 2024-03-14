@@ -16,3 +16,21 @@ test('get started link', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
+
+test('test', async ({ page }) => {
+  await page.goto('https://www.mercadolibre.com.co/');
+  await page.locator('input[id=\'cb1-edit\']').fill('iphone')  
+  await page.keyboard.press('Enter')
+
+  await expect(page.locator('//ol[contains(@class, \'ui-search-layout\')]')).toBeVisible() 
+  //await page.pause()
+
+  const titles= await page.locator('//ol[contains(@class, \'ui-search-layout\')]//li//h2').allInnerTexts()
+
+
+  console.log('the total number of result is', titles.length)
+
+  for(let title of titles){
+    console.log('the title is: ', title)
+     }
+});
