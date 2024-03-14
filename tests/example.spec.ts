@@ -33,4 +33,8 @@ test('test', async ({ page }) => {
   for(let title of titles){
     console.log('the title is: ', title)
      }
+
+
+
+     
 });
